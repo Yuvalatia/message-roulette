@@ -5,7 +5,7 @@ const { createAdapter } = require('@socket.io/redis-adapter')
 const config = require('./config')
 const { createConnection } = require('./db/redis')
 const logger = require('./utils/logger')
-const { roomNames } = require('./constants')
+const { rooms } = require('./constants')
 const messageHandler = require('./handlers/message')
 
 const io = new Server(httpServer, {
@@ -24,7 +24,7 @@ Promise.all([pubRedisClient.connect(), subRedisClient.connect()]).then(() => {
     logger.info(`User connected with id:${socket.id}`)
 
     socket.join(`socket:${socket.id}`)
-    socket.join(roomNames.ALL_CONNECTED_SOCKETS_ROOM)
+    socket.join(rooms.ALL_CONNECTED_SOCKETS_ROOM)
 
     messageHandler(io, socket)
   })
