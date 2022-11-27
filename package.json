@@ -2,7 +2,7 @@
   "name": "message-roulette-yuval-atia",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "jest --forceExit --detectOpenHandles --verbose",
     "start": "node app.js",
